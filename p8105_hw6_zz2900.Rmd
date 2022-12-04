@@ -182,8 +182,6 @@ bw_df = read_csv("./data/birthweight.csv") %>%
 
 
 ```{r}
-bw_df %>% 
-  skim()
 bw_df = bw_df %>% 
   select(-pnumlbw, -pnumsga)
 ```
