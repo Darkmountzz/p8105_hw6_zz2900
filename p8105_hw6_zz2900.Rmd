@@ -193,8 +193,8 @@ bw_dfm = bw_df %>%
   select(-parity, -malform, -smoken, -frace, -ppwt, -delwt)
 ```
 
-
-Besides variables mentioned above, variables parity, malform, and smoken are highly skewed, thus I choose to remove the three variables. Variables ppwt and delwt are also removed considering mother's weight at delivery minus mother's weight before pregnancy equals the Variable wtgain. Based on the hypothesis that father's race is not significantly associated with brith weight, the predictor variables used in my model are `r names(bw_dfm)`. 
+Besides variables mentioned above, variables parity, malform, and smoken are highly skewed, thus I choose to remove the three variables. Variables ppwt and delwt are also removed considering mother's weight at delivery minus mother's weight before pregnancy equals the Variable wtgain. 
+Based on the hypothesis that father's race is not significantly associated with brith weight, the predictor variables used in my model are `r names(bw_dfm)`. 
 
 ```{r}
 bw_model = lm(bwt ~ ., data = bw_dfm)
