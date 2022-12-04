@@ -202,7 +202,7 @@ summary(bw_model)
 bw_newmodel = lm(bwt ~ babysex + bhead + blength + fincome + gaweeks + mheight + mrace + ppbmi + wtgain, data = bw_dfm)
 ```
 
-Since the coefficients of variables menarche and momage are not significant at 0.1 significance level, the R-sqaured is not impaired after dropping the two variables(`r summary(bw_model)$r.squared ` vs. `r summary(bw_newmodel)$r.squared `)
+The coefficients of variables menarche and momage are not significant at 0.1 significance level, so the R-sqaured is not impaired after dropping the two variables(`r summary(bw_model)$r.squared ` vs. `r summary(bw_newmodel)$r.squared `)
 
 ```{r}
 bw_newmodel %>% 
