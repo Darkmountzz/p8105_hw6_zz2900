@@ -1,7 +1,6 @@
 ---
 title: "Homework 6"
 author: "Zhenyu Zhou"
-date: "12/01/2022"
 output: github_document
 ---
 
@@ -31,6 +30,7 @@ theme_set(theme_minimal() + theme(legend.position = "bottom"))
 ```{r load_libraries}
 library(tidyverse)
 library(modelr)
+library(skimr)
 ```
 
 ### Problem 1
