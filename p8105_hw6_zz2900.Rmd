@@ -170,7 +170,7 @@ In many cities, homicides with male victims are harder to solve than homicides w
 
 ### Problem 3
 
-Load and clean the data for regression analysis
+Load and clean the data
 
 ```{r, message = F}
 bw_df = read_csv("./data/birthweight.csv") %>% 
@@ -186,7 +186,7 @@ bw_df = bw_df %>%
   select(-pnumlbw, -pnumsga)
 ```
 
-There is no missing value in the current dataset. Since data entries for two variables __pnumlbw__ and __pnumsga__ are zero, we choose to drop these variables.
+There is no missing value in the current dataset. Since data entries for two variables pnumlbw and pnumsga are zero, we choose to drop these variables.
 
 ```{r}
 bw_dfm = bw_df %>% 
@@ -194,7 +194,7 @@ bw_dfm = bw_df %>%
 ```
 
 
-Besides variables mentioned above, variables __parity__, __malform__, and __smoken__ are highly skewed, thus I choose to remove the three variables. Variables _ppwt__ and __delwt__ are also removed considering mother's weight at delivery minus mother's weight before pregnancy equals the Variable _wtgain__. Based on the hypothesis that father's race is not significantly associated with brith weight, the predictor variables used in my model are `r names(bw_dfm)`. 
+Besides variables mentioned above, variables parity, malform, and smoken are highly skewed, thus I choose to remove the three variables. Variables ppwt and delwt are also removed considering mother's weight at delivery minus mother's weight before pregnancy equals the Variable wtgain. Based on the hypothesis that father's race is not significantly associated with brith weight, the predictor variables used in my model are `r names(bw_dfm)`. 
 
 ```{r}
 bw_model = lm(bwt ~ ., data = bw_dfm)
@@ -202,7 +202,7 @@ summary(bw_model)
 bw_newmodel = lm(bwt ~ babysex + bhead + blength + fincome + gaweeks + mheight + mrace + ppbmi + wtgain, data = bw_dfm)
 ```
 
-Since the coefficients of variables __menarche__ and __momage__ are not significant at 0.1 significance level, the R-sqaured is not impaired after dropping the two variables(`r summary(bw_model)$r.squared ` vs. `r summary(bw_newmodel)$r.squared `)
+Since the coefficients of variables menarche and momage are not significant at 0.1 significance level, the R-sqaured is not impaired after dropping the two variables(`r summary(bw_model)$r.squared ` vs. `r summary(bw_newmodel)$r.squared `)
 
 ```{r}
 bw_newmodel %>% 
